@@ -3,9 +3,21 @@
   <t-input class="item" label="输入地址" placeholder="详情页或分享链接" />
 <t-button  class="item" theme="primary" size="small" block>开始</t-button>
 </view>
+<view class="swiper-container">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height: 100px;"> 
+  <swiper-item wx:for="{{imageUrls}}" wx:key="index">
+    <image src="{{item}}" mode="aspectFill"></image>
+  </swiper-item>
+</swiper>
+</view>
+
 
 <view class="scroll-container">
+
+
   <!-- <block wx:for="{{imageData}}" wx:key="index"> -->
+
+
     <view class="row">
       <image class="image-item" src="./4.jpeg" mode="aspectFill"></image>
       <image class="image-item" src="./5.jpeg" mode="aspectFill"></image>

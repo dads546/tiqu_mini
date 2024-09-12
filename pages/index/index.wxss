@@ -1,0 +1,15 @@
+.item {
+  margin: 10rpx;
+}
+
+.scroll-container {
+  height: 500rpx; /* 设置一个固定高度，根据你的需求调整 */
+  overflow-y: scroll; /* 开启垂直滚动 */
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+.image-item {
+  width: 45%; /* 让两张图片各占约一半宽度，避免出现第三列 */
+}

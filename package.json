@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "tdesign-miniprogram": "^1.6.0"
+  },
+  "usingComponents": {
+    "t-divider": "tdesign-miniprogram/divider/divider",
+    "t-tag": "tdesign-miniprogram/tag/tag"
+  }
+}

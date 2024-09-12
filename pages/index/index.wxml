@@ -1,0 +1,16 @@
+<view class="container">
+  <t-tag class="item" theme="primary"  variant="light" shape="round">dy图集</t-tag>
+  <t-input class="item" label="输入地址" placeholder="详情页或分享链接" />
+<t-button  class="item" theme="primary" size="small" block>开始</t-button>
+</view>
+
+<view class="scroll-container">
+  <!-- <block wx:for="{{imageData}}" wx:key="index"> -->
+    <view class="row">
+      <image class="image-item" src="./4.jpeg" mode="aspectFill"></image>
+      <image class="image-item" src="./5.jpeg" mode="aspectFill"></image>
+      <!-- <image class="image-item" src="{{item.imageUrl2}}" mode="aspectFill"></image> -->
+    </view>
+  <!-- </block> -->
+</view>
+

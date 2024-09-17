@@ -1,26 +1,23 @@
 <view class="container">
-  <view class="dytj">
-    <t-tag class="item" theme="primary"  variant="light" shape="round">dy图集</t-tag>
-    <t-input class="item" label="输入地址" placeholder="详情页或分享链接" />
-  <t-button  class="item" theme="primary" size="small" block>开始</t-button>
-  </view>
-
-  <view class="swiper-container">
-  <swiper
-  indicator-dots="true"
-  autoplay="true"
-  interval="3000"
-  duration="500"
-  circular="true"
->
-  <swiper-item>
-    <image src="./4.jpeg" class="slide-image"></image>
-  </swiper-item>
-  <swiper-item>
-    <image src="./5.jpeg" class="slide-image"></image>
-  </swiper-item>
-</swiper>
-  </view>
+  <t-tag class="item" theme="primary"  variant="light" shape="round">dy图集</t-tag>
+  <t-input class="item" label="输入地址" placeholder="详情页或分享链接"
+  bindchange="onInputChange" />
+<t-button loading="{{loading}}" class="item" theme="primary" size="small" bind:tap="onButtonClick"  block>开始</t-button>
 </view>
 
-
+<view wx:if="{{showResult}}" class="result-view">
+  <view><t-button bind:tap="saveToAlbum">批量保存到相册</t-button></view>
+  <view class="image-container">
+    <view class="image-column">
+        <block wx:for="{{leftColumnImages}}" wx:key="index">
+          <image src="{{item}}" mode="aspectFill" data-src="{{item}}" class="image-item" bindtap="previewImage"></image>
+        </block>
+    </view>
+    <view class="image-column">
+    <block wx:for="{{rightColumnImages}}" wx:key="index">
+        <image src="{{item}}" mode="aspectFill" data-src="{{item}}" class="image-item" bindtap="previewImage"></image>
+      </block>
+  </view>
+</view>
+</view>
+<t-message id="t-message"/>

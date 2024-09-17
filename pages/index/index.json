@@ -1,9 +1,9 @@
 {
   "usingComponents": {
     "t-button": "tdesign-miniprogram/button/button",
-    "t-divider": "tdesign-miniprogram/divider/divider",
     "t-input": "tdesign-miniprogram/input/input",
-    "t-tag": "tdesign-miniprogram/tag/tag"
+    "t-tag": "tdesign-miniprogram/tag/tag",
+    "t-message": "tdesign-miniprogram/message/message"
   },
   "navigationBarTitleText": "主页"
 }

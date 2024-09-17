@@ -1,11 +1,8 @@
 {
   "dependencies": {
-    "@vant/weapp": "^1.11.6",
-    "tdesign-miniprogram": "^1.6.0",
-    "wux-weapp": "^3.11.3"
+    "tdesign-miniprogram": "^1.6.0"
   },
   "usingComponents": {
-    "t-divider": "tdesign-miniprogram/divider/divider",
     "t-tag": "tdesign-miniprogram/tag/tag"
   }
 }

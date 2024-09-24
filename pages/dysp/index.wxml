@@ -1,0 +1,33 @@
+<view class="container">
+  <t-notice-bar
+  class="notice-bar-custom"
+  visible="{{true}}"
+  prefixIcon="null"
+  interval="0"
+  marquee="{{marquee1}}"
+  content="手机端抖音用户请复制分享链接。电脑端请复制浏览器地址。eg: https://www.douyin.com/note/72948xxxxx35716388"></t-notice-bar>
+  <view slot="prefix-icon">
+    <t-icon name="error-circle-filled"></t-icon>
+  </view>
+  <view>
+    <t-tag class="item" theme="primary"  variant="light" shape="round">dy视频</t-tag>
+  </view>
+  <view class="input-area-container">
+    <textarea bindinput="onInputChange" value="{{douyintuji}}" class="input-area" placeholder="网页链接或分享链接"></textarea>
+  </view>
+  <view class="btn-bottom-group">
+    <t-button class="item clear_btn" variant="outline" size="small" bind:tap="clearInput">清空内容</t-button>
+    <t-button loading="{{loading}}" class="item start_btn" theme="primary" size="small" bind:tap="onButtonClick">开始解析</t-button>
+  </view>
+
+</view>
+<view wx:if="{{showResult}}" class="result-view">
+  <view class="btn_group">
+    <t-button bind:tap="saveVideo">保存视频</t-button>
+    <t-button bind:tap="copyDownloadLink" theme="light">复制链接地址</t-button>
+  </view>
+  <view class="video-container">
+    <video src="{{downloadUrl}}}" autoplay="false" controls loop></video>
+  </view>
+</view>
+<t-message id="t-message"/>

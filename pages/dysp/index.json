@@ -1,12 +1,10 @@
 {
-  "dependencies": {
-    "tdesign-miniprogram": "^1.6.1"
-  },
   "usingComponents": {
     "t-button": "tdesign-miniprogram/button/button",
     "t-input": "tdesign-miniprogram/input/input",
     "t-tag": "tdesign-miniprogram/tag/tag",
     "t-notice-bar": "tdesign-miniprogram/notice-bar/notice-bar",
     "t-message": "tdesign-miniprogram/message/message"
-  }
+  },
+  "navigationBarTitleText": "抖音视频"
 }

@@ -1,29 +1,9 @@
-.dytj {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.result-view {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.main_divider {
+  --td-divider-color: rgb(51, 12, 12);
+  --td-divider-content-color: gray;
 }
 
-.image-container {
-  display: flex;
-  width: 90%;
-  overflow-x: auto;
-  padding: 20rpx;
-}
-
-.image-column {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  margin: 10rpx;
-}
-
-.image-item {
-  width: 100%;
-  margin-bottom: 20rpx;
+.linkBtn {
+  width: 100px;
+  --td-button-small-font-size: 12px;
 }

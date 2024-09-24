@@ -1,23 +1,33 @@
-<view class="container">
-  <t-tag class="item" theme="primary"  variant="light" shape="round">dy图集</t-tag>
-  <t-input class="item" label="输入地址" placeholder="详情页或分享链接"
-  bindchange="onInputChange" />
-<t-button loading="{{loading}}" class="item" theme="primary" size="small" bind:tap="onButtonClick"  block>开始</t-button>
+<view>
+<view>
+  <t-divider class="main_divider" content="dy相关"  align="center" />
+  <t-row>
+    <t-col span="8" offset="3">
+      <t-button bind:tap="navigateToDytj" size="small" class="linkBtn">dy图集</t-button>
+    </t-col>
+    <t-col span="8" offset="4">
+      <t-button bind:tap="navigateToDysp" size="small" class="linkBtn">dy视频</t-button>
+    </t-col>
+  </t-row>
 </view>
-
-<view wx:if="{{showResult}}" class="result-view">
-  <view><t-button bind:tap="saveToAlbum">批量保存到相册</t-button></view>
-  <view class="image-container">
-    <view class="image-column">
-        <block wx:for="{{leftColumnImages}}" wx:key="index">
-          <image src="{{item}}" mode="aspectFill" data-src="{{item}}" class="image-item" bindtap="previewImage"></image>
-        </block>
-    </view>
-    <view class="image-column">
-    <block wx:for="{{rightColumnImages}}" wx:key="index">
-        <image src="{{item}}" mode="aspectFill" data-src="{{item}}" class="image-item" bindtap="previewImage"></image>
-      </block>
-  </view>
+  
+<view>
+  <t-divider class="main_divider" content="红薯相关"  align="center" />
+  <t-row>
+    <t-col span="8" offset="3">
+      <t-button disabled="true" size="small" class="linkBtn">图片解析(开发中)</t-button>
+    </t-col>
+    <t-col span="8" offset="4">
+      <t-button disabled="true" size="small" class="linkBtn">视频解析(开发中)</t-button>
+    </t-col>
+  </t-row>
+</view>
+<view>
+  <t-divider class="main_divider" content="bilibili"  align="center" />
+  <t-row>
+    <t-col span="8" offset="9">
+      <t-button disabled="true" size="small" class="linkBtn">视频解析(开发中)</t-button>
+    </t-col>
+  </t-row>
 </view>
 </view>
-<t-message id="t-message"/>

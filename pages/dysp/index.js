@@ -187,25 +187,25 @@ Page({
                 resolve();
               },
               fail: function(err) {
-                reject(new Error('如下载视频失败，请复制下载链接到浏览器中自行下载'));
+                reject(err);
                 wx.showToast({
-                  title: '该视频不支持保存相册，请复制下载链接到浏览器中自行下载',
+                  title: '该视频不支持保存相册，请复制下载链接打开后自行下载',
                   icon: 'none'
                 });
               }
             });
           } else {
-            reject(new Error('该视频不支持保存相册，请复制下载链接到浏览器中自行下载'));
+            reject();
             wx.showToast({
-              title: '该视频不支持保存相册，请复制下载链接到浏览器中自行下载',
+              title: '该视频不支持保存相册，请复制下载链接打开后自行下载',
               icon: 'none'
             });
           }
         },
         fail: function(err) {
-          reject(new Error('该视频不支持保存相册，请复制下载链接到浏览器中自行下载'));
+          reject(err);
           wx.showToast({
-            title: '该视频不支持保存相册，请复制下载链接到浏览器中自行下载',
+            title: '该视频不支持保存相册，请复制下载链接打开后自行下载',
             icon: 'none'
           });
         }

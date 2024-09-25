@@ -193,9 +193,6 @@ Page({
         }else {
           this.batchSaveImagesToAlbum(this.data.imageList);
         }
-      },
-      fail: (err) => {
-        console.log('获取权限状态失败', err);
       }
     });
   },
@@ -217,10 +214,18 @@ Page({
             });
           } else {
             reject(new Error('下载图片失败'));
+            wx.showToast({
+              title: '保存失败：请点击图片预览长按进行保存',
+              icon: 'none'
+            });
           }
         },
         fail: function(err) {
           reject(err);
+          wx.showToast({
+            title: '保存失败：请点击图片预览长按进行保存',
+            icon: 'none'
+          });
         }
       });
     });
@@ -234,15 +239,8 @@ Page({
       });
     } catch (error) {
       console.log(JSON.stringify(error))
-      Message.info({
-        context: this,
-        offset: [20, 32],
-        duration: 2000,
-        // single: false, // 打开注释体验多个消息叠加效果
-        content: '保存失败' + JSON.stringify(error),
-      });
       wx.showToast({
-        title: '保存失败' + JSON.stringify(error),
+        title: '保存失败：请点击图片预览长按进行保存',
         icon: 'none'
       });
     }

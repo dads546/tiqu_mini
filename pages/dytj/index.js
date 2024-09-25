@@ -173,20 +173,29 @@ Page({
               this.batchSaveImagesToAlbum(this.data.imageList);
             },
             fail: () => {
-              // 用户拒绝授权，提示用户开启权限
-              wx.authorize({
-                scope: 'scope.writePhotosAlbum',
-                success: () => {
-                  this.batchSaveImagesToAlbum(this.data.imageList);
+              wx.showModal({
+                title: '提示',
+                content: '需要授权才能保存图片到相册, 否则请点击图片预览长按进行保存',
+                showCancel: true,
+                success(res) {
+                  if (res.confirm) {
+                    wx.openSetting({
+                      success: (resSetting) => {
+                        if (resSetting.authSetting['scope.writePhotosAlbum']) {
+                        } else {
+                          wx.showModal({
+                            title: '提示',
+                            content: '如不打开相册授权，请点击图片预览长按进行保存',
+                          })
+                        }
+                      },
+                      fail: (err) => {
+                        console.log(err);
+                      },
+                    });
+                  }
                 },
-                fail: () => {
-                  wx.showModal({
-                    title: '提示',
-                    content: '需要授权才能保存图片到相册，请在设置中开启相册写入权限。',
-                    showCancel: false
-                  });
-                }
-              })
+              });
             }
           });
         }else {
@@ -234,7 +243,7 @@ Page({
     } catch (error) {
       console.log(JSON.stringify(error))
       wx.showToast({
-        title: '保存失败' + error,
+        title: '保存失败' + JSON.stringify(error),
         icon: 'none'
       });
     }

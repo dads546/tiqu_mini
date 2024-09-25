@@ -140,12 +140,34 @@ Page({
               // 权限申请成功，执行保存视频的操作
               this.saveVideoToAlbum(this.data.downloadUrl);
             },
-            fail() {
+            fail(err) {
+              console.log(JSON.stringify(err));
               // 权限申请失败，可以提示用户手动开启权限
               wx.showModal({
                 title: '提示',
-                content: '需要获取保存到相册的权限才能保存视频，请在设置中开启。',
-                showCancel: false
+                content: '需要获取保存到相册的权限才能保存视频，否则请复制链接到浏览器中下载',
+                showCancel: true,
+                success(res) {
+                  if (res.confirm) {
+                    wx.openSetting({
+                      success: (resSetting) => {
+                        if (resSetting.authSetting['scope.writePhotosAlbum']) {
+                          console.log('success')
+                        } else {
+                          wx.showModal({
+                            title: '提示',
+                            content: '如不打开相册授权，请复制链接到浏览器中下载',
+                          })
+                        }
+                      },
+                      fail: (err) => {
+                        console.log(err);
+                      },
+                    });
+                  } else if (res.cancel) {
+                    // 用户取消了，可根据情况处理
+                  }
+                },
               });
             }
           });
@@ -173,14 +195,26 @@ Page({
               },
               fail: function(err) {
                 reject(new Error('如下载视频失败，请复制下载链接到浏览器中自行下载'));
+                wx.showToast({
+                  title: '该视频不支持保存相册，请复制下载链接到浏览器中自行下载',
+                  icon: 'none'
+                });
               }
             });
           } else {
-            reject(new Error('如下载视频失败，请复制下载链接到浏览器中自行下载'));
+            reject(new Error('该视频不支持保存相册，请复制下载链接到浏览器中自行下载'));
+            wx.showToast({
+              title: '该视频不支持保存相册，请复制下载链接到浏览器中自行下载',
+              icon: 'none'
+            });
           }
         },
         fail: function(err) {
-          reject(err);
+          reject(new Error('该视频不支持保存相册，请复制下载链接到浏览器中自行下载'));
+          wx.showToast({
+            title: '该视频不支持保存相册，请复制下载链接到浏览器中自行下载',
+            icon: 'none'
+          });
         }
       });
     });

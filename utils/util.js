@@ -14,6 +14,19 @@ const formatNumber = n => {
   return n[1] ? n : `0${n}`
 }
 
-module.exports = {
-  formatTime
+const extractUrls = (text) => {
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  let match;
+  const urls = [];
+  while ((match = urlRegex.exec(text))!== null) {
+    urls.push(match[0]);
+  }
+  return urls;
 }
+
+
+module.exports = {
+  formatTime,
+  extractUrls
+}
+

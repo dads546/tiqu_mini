@@ -1,4 +1,5 @@
 import Message from 'tdesign-miniprogram/message/index';
+import {extractUrls} from "../../utils/util";
 
 Page({
   data: {
@@ -71,15 +72,6 @@ Page({
   sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   },
-  extractUrls(text) {
-    const urlRegex = /(https?:\/\/[^\s]+)/g;
-    let match;
-    const urls = [];
-    while ((match = urlRegex.exec(text))!== null) {
-      urls.push(match[0]);
-    }
-    return urls;
-  },
 
   clearInput() {
     this.setData({
@@ -100,7 +92,7 @@ Page({
     }
 
 
-    const urls = this.extractUrls(path);
+    const urls = extractUrls(path);
     if(urls[0] === undefined) {
       valid = false;
     }else {
@@ -242,6 +234,13 @@ Page({
       });
     } catch (error) {
       console.log(JSON.stringify(error))
+      Message.info({
+        context: this,
+        offset: [20, 32],
+        duration: 2000,
+        // single: false, // 打开注释体验多个消息叠加效果
+        content: '保存失败' + JSON.stringify(error),
+      });
       wx.showToast({
         title: '保存失败' + JSON.stringify(error),
         icon: 'none'

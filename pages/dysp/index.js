@@ -1,4 +1,6 @@
 import Message from 'tdesign-miniprogram/message/index';
+import {extractUrls} from "../../utils/util";
+
 
 Page({
   data: {
@@ -21,15 +23,6 @@ Page({
 
   sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-  },
-  extractUrls(text) {
-    const urlRegex = /(https?:\/\/[^\s]+)/g;
-    let match;
-    const urls = [];
-    while ((match = urlRegex.exec(text))!== null) {
-      urls.push(match[0]);
-    }
-    return urls;
   },
 
   setVideoUrl(url) {
@@ -58,7 +51,7 @@ Page({
     }
 
 
-    const urls = this.extractUrls(path);
+    const urls = extractUrls(path);
     if(urls[0] === undefined) {
       valid = false;
     }else {

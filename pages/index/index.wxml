@@ -1,33 +1,79 @@
-<view>
-<view>
-  <t-divider class="main_divider" content="dy相关"  align="center" />
-  <t-row>
-    <t-col span="8" offset="3">
-      <t-button bind:tap="navigateToDytj" size="small" class="linkBtn">dy图集</t-button>
-    </t-col>
-    <t-col span="8" offset="4">
-      <t-button bind:tap="navigateToDysp" size="small" class="linkBtn">dy视频</t-button>
-    </t-col>
-  </t-row>
-</view>
-  
-<view>
-  <t-divider class="main_divider" content="红薯相关"  align="center" />
-  <t-row>
-    <t-col span="8" offset="3">
-      <t-button bind:tap="navigateTotjxhs" size="small" class="linkBtn">图文笔记</t-button>
-    </t-col>
-    <t-col span="8" offset="4">
-      <t-button bind:tap="navigateTospxhs" size="small" class="linkBtn">视频笔记</t-button>
-    </t-col>
-  </t-row>
-</view>
-<view>
-  <t-divider class="main_divider" content="bilibili"  align="center" />
-  <t-row>
-    <t-col span="8" offset="9">
-      <t-button bind:tap="navigateToBl"  size="small" class="linkBtn">视频解析</t-button>
-    </t-col>
-  </t-row>
-</view>
+<!--<view>-->
+<!--  <view>-->
+<!--    <t-divider class="main_divider" content="dy相关"  align="center" />-->
+<!--    <t-row>-->
+<!--      <t-col span="8" offset="3">-->
+<!--        <t-button bind:tap="navigateToDytj" size="small" class="linkBtn">dy图集</t-button>-->
+<!--      </t-col>-->
+<!--      <t-col span="8" offset="4">-->
+<!--        <t-button bind:tap="navigateToDysp" size="small" class="linkBtn">dy视频</t-button>-->
+<!--      </t-col>-->
+<!--    </t-row>-->
+<!--  </view>-->
+<!--    -->
+<!--  <view>-->
+<!--    <t-divider class="main_divider" content="红薯相关"  align="center" />-->
+<!--    <t-row>-->
+<!--      <t-col span="8" offset="3">-->
+<!--        <t-button bind:tap="navigateTotjxhs" size="small" class="linkBtn">图文笔记</t-button>-->
+<!--      </t-col>-->
+<!--      <t-col span="8" offset="4">-->
+<!--        <t-button bind:tap="navigateTospxhs" size="small" class="linkBtn">视频笔记</t-button>-->
+<!--      </t-col>-->
+<!--    </t-row>-->
+<!--  </view>-->
+<!--  <view>-->
+<!--    <t-divider class="main_divider" content="bilibili"  align="center" />-->
+<!--    <t-row>-->
+<!--      <t-col span="8" offset="9">-->
+<!--        <t-button bind:tap="navigateToBl"  size="small" class="linkBtn">视频解析</t-button>-->
+<!--      </t-col>-->
+<!--    </t-row>-->
+<!--  </view>-->
+<!--  <view>-->
+<!--    <t-divider class="main_divider" content="快手"  align="center" />-->
+<!--    <t-row>-->
+<!--      <t-col span="8" offset="9">-->
+<!--        <t-button bind:tap="navigateToks"  size="small" class="linkBtn">视频解析</t-button>-->
+<!--      </t-col>-->
+<!--    </t-row>-->
+<!--  </view>-->
+<!--</view>-->
+<view class="container">
+  <view class="button-group">
+    <button class="round-button" bindtap="navigateToDysp">
+      <image class="button-icon" src="/icons/dy.png"></image>
+<!--      抖音视频-->
+      <text>抖音视频 ></text>
+    </button>
+    <button class="round-button" bindtap="navigateToDytj">
+      <image class="button-icon" src="/icons/dy.png"></image>
+<!--      声音和触感-->
+      <text>抖音图集 ></text>
+    </button>
+  </view>
+  <view class="button-group">
+    <button class="round-button" bindtap="navigateTospxhs">
+      <image class="button-icon" src="/icons/xhs.png"></image>
+<!--      语音转文字-->
+      <text>视频笔记 ></text>
+    </button>
+    <button class="round-button" bindtap="navigateTotjxhs">
+      <image class="button-icon" src="/icons/xhs.png"></image>
+<!--      声音和触感-->
+      <text>图文笔记 ></text>
+    </button>
+  </view>
+  <view class="button-group">
+    <button class="round-button" bindtap="navigateToBl">
+      <image class="button-icon" src="/icons/bilibili.png"></image>
+<!--      语音转文字-->
+      <text>哔哩哔哩 ></text>
+    </button>
+    <button class="round-button" bindtap="navigateToks">
+      <image class="button-icon" src="/icons/ks.png"></image>
+<!--      声音和触感-->
+      <text class="ks-text">快手 ></text>
+    </button>
+  </view>
 </view>

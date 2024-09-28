@@ -22,6 +22,11 @@ Page({
       url: '/pages/dysp/index?type=bl',
     })
   },
+  navigateToks() {
+    wx.navigateTo({
+      url: '/pages/dysp/index?type=ks',
+    })
+  },
   navigateTotjxhs() {
     wx.navigateTo({
       url: '/pages/dytj/index?type=xhs',

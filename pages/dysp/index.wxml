@@ -15,6 +15,14 @@
   interval="0"
   marquee="{{marquee1}}"
   content="手机端B站用户请复制分享链接。电脑端请复制浏览器地址。eg: https://www.bilibili.com/video/BV1frpjebEFL/"></t-notice-bar>
+  <t-notice-bar
+          wx:if="{{type === 'ks' || type === 'xhs'}}"
+          class="notice-bar-custom"
+          visible="{{true}}"
+          prefixIcon="null"
+          interval="0"
+          marquee="{{marquee1}}"
+          content="复制分享链接或网页视频链接地址"></t-notice-bar>
   <view slot="prefix-icon">
     <t-icon name="error-circle-filled"></t-icon>
   </view>
@@ -22,6 +30,7 @@
     <t-tag wx:if="{{type === 'dy'}}" class="item" theme="primary"  variant="light" shape="round">dy视频</t-tag>
     <t-tag wx:if="{{type === 'bl'}}" class="item" theme="primary"  variant="light" shape="round">bilibili干杯</t-tag>
     <t-tag wx:if="{{type === 'xhs'}}" class="item" theme="primary"  variant="light" shape="round">视频笔记</t-tag>
+    <t-tag wx:if="{{type === 'ks'}}" class="item" theme="primary"  variant="light" shape="round">快手视频</t-tag>
   </view>
   <view class="input-area-container">
     <textarea bindinput="onInputChange" value="{{douyintuji}}" class="input-area" placeholder="网页链接或分享链接"></textarea>

@@ -6,6 +6,7 @@ Page({
     }
   },
   onShareTimeline() {},
+  onShareTimeline() {},
   navigateToDytj() {
     wx.navigateTo({
       url: '/pages/dytj/index',
@@ -13,7 +14,24 @@ Page({
   },
   navigateToDysp() {
     wx.navigateTo({
-      url: '/pages/dysp/index',
+      url: '/pages/dysp/index?type=dy',
     })
   },
+  navigateToBl() {
+    wx.navigateTo({
+      url: '/pages/dysp/index?type=bl',
+    })
+  },
+  navigateTotjxhs() {
+    wx.navigateTo({
+      url: '/pages/dytj/index?type=xhs',
+    })
+  },
+  navigateTospxhs() {
+    wx.navigateTo({
+      url: '/pages/dysp/index?type=xhs',
+    })
+  }
+
+
 })

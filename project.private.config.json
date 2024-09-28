@@ -4,5 +4,25 @@
   "setting": {
     "compileHotReLoad": true
   },
-  "libVersion": "development"
+  "libVersion": "development",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "dysp",
+          "pathName": "pages/dysp/index",
+          "query": "type=dy&param=https://v.douyin.com/ikpSKm7c/",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

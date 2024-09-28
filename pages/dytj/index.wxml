@@ -5,12 +5,14 @@
   prefixIcon="null"
   interval="0"
   marquee="{{marquee1}}"
+  wx:if="{{type === 'dy'}}"
   content="手机端抖音用户请复制分享链接。电脑端请复制浏览器地址。eg: https://www.douyin.com/note/72948xxxxx35716388"></t-notice-bar>
   <view slot="prefix-icon">
     <t-icon name="error-circle-filled"></t-icon>
   </view>
   <view>
-    <t-tag class="item" theme="primary"  variant="light" shape="round">dy图集</t-tag>
+    <t-tag wx:if="{{type === 'dy'}}" class="item" theme="primary"  variant="light" shape="round">dy图集</t-tag>
+    <t-tag wx:if="{{type === 'xhs'}}" class="item" theme="primary"  variant="light" shape="round">图文笔记</t-tag>
   </view>
   <view class="input-area-container">
     <textarea bindinput="onInputChange" value="{{douyintuji}}" class="input-area" placeholder="网页链接或分享链接"></textarea>

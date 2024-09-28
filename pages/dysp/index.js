@@ -3,17 +3,70 @@ import {extractUrls} from "../../utils/util";
 
 
 Page({
+  onLoad: function (options) {
+    const type = options.type;
+    const param = options.param;
+
+    if (type === 'bl') {
+      wx.setNavigationBarTitle({
+        title: '哔哩哔哩',
+      });
+    }
+
+    if (type === 'dy') {
+      wx.setNavigationBarTitle({
+        title: '抖音视频',
+      });
+    }
+
+    if (type === 'xhs') {
+      wx.setNavigationBarTitle({
+        title: '视频笔记',
+      });
+    }
+
+    this.setData({
+      douyintuji: param,
+      type: type
+    });
+  },
+  onShareAppMessage(){//点亮发送给朋友
+    return {
+      title: '一键提取王：' + this.getShareTitleSuffix(),//标题
+      path: 'pages/dysp/index?type' +this.data.type //路径
+    }
+  },
+  onShareTimeline() {},
+  getShareTitleSuffix() {
+    if(this.data.type === 'bl') {
+      return 'bilibili视频解析';
+    }
+
+    if(this.data.type === 'dy') {
+      return 'dy视频解析';
+    }
+
+    if(this.data.type === 'xhs') {
+      return '视频笔记解析';
+    }
+
+    return '解析小助手';
+  },
+
   data: {
+    type: 1,
     marquee1: {
       speed: 80,
       loop: -1,
       delay: -50,
     },
     showResult: false,
+    percentage: 0,
     loading: false,
     douyintuji:'',
     // 初始时不设置具体的图片列表，等待外部传入
     downloadUrl: '',
+    showUrl: '',
   },
   onInputChange(event) {
     this.setData({
@@ -26,6 +79,13 @@ Page({
   },
 
   setVideoUrl(url) {
+    this.setData({
+      showUrl: url,
+      showResult: true
+    });
+  },
+
+  setDownloadUrl(url) {
     this.setData({
       downloadUrl: url,
       showResult: true
@@ -81,7 +141,18 @@ Page({
         },
         success: (res) => {
           // console.log(JSON.stringify(res))
-          this.setVideoUrl(res?.data?.data?.downloadUrl);
+          if(res?.data?.code === 0) {
+            this.setVideoUrl(res?.data?.data?.videoUrl);
+            this.setDownloadUrl(res?.data?.data?.downloadUrl);
+          }else {
+            Message.error({
+              context: this,
+              offset: [20, 32],
+              duration: 2000,
+              // single: false, // 打开注释体验多个消息叠加效果
+              content: '解析失败,' + res?.data?.errorMsg,
+            });
+          }
           this.setData({
             loading: false
           });
@@ -92,7 +163,19 @@ Page({
             offset: [20, 32],
             duration: 2000,
             // single: false, // 打开注释体验多个消息叠加效果
-            content: '解析失败,'+ res?.data?.errorMsg,
+            content: '解析失败, 请重试'
+          });
+          this.setData({
+            loading: false
+          });
+        },
+        timeout: () => {
+          Message.error({
+            context: this,
+            offset: [20, 32],
+            duration: 2000,
+            // single: false, // 打开注释体验多个消息叠加效果
+            content: '请求超时，请稍后重试'
           });
           this.setData({
             loading: false
@@ -173,11 +256,10 @@ Page({
     });
   },
 
-  saveVideoToAlbum: (url) => {
-
-    console.log(url);
+  saveVideoToAlbum (url) {
     return new Promise((resolve, reject) => {
-      wx.downloadFile({
+      const self = this;
+      const task = wx.downloadFile({
         url: url,
         success: function(res) {
           if (res.statusCode === 200) {
@@ -208,8 +290,19 @@ Page({
             title: '该视频不支持保存相册，请复制下载链接打开后自行下载',
             icon: 'none'
           });
-        }
+        },
       });
+      task.onProgressUpdate((res)=> {
+        if (res.progress === 100) {
+          self.setData({
+            percentage: 0
+          })
+        } else {
+          self.setData({
+            percentage: res.progress,
+          })
+        }
+      })
     });
   }
 

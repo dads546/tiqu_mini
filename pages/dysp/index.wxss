@@ -70,3 +70,18 @@ video {
   width: 100%;
   justify-content: space-between;
 }
+
+.progress-bar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin: 50%;
+}
+
+.progress-text {
+  text-align: center;
+  margin-top: 5px;
+  z-index: 999;
+}

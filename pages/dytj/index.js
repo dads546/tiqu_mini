@@ -2,7 +2,46 @@ import Message from 'tdesign-miniprogram/message/index';
 import {extractUrls} from "../../utils/util";
 
 Page({
+  onLoad: function (options) {
+    const type = options.type;
+    const param = options.param;
+
+    if (type === 'xhs') {
+      wx.setNavigationBarTitle({
+        title: '图文笔记',
+      });
+    }
+
+    if (type === 'dy') {
+      wx.setNavigationBarTitle({
+        title: '抖音图集',
+      });
+    }
+
+    this.setData({
+      douyintuji: param,
+      type: type
+    });
+  },
+  onShareAppMessage(){//点亮发送给朋友
+    return {
+      title: '一键提取王：' + this.getShareTitle(),//标题
+      path: 'pages/dytj/index?type' + this.data.type, //路径
+    }
+  },
+  onShareTimeline() {},
+  getShareTitle() {
+    if(this.data.type === 'dy') {
+      return 'dy图集解析';
+    }
+
+    if(this.data.type === 'xhs') {
+      return '图文笔记解析';
+    }
+    return '解析小助手';
+  },
   data: {
+    type: 'dy',
     marquee1: {
       speed: 80,
       loop: -1,

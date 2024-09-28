@@ -15,10 +15,10 @@
   <t-divider class="main_divider" content="红薯相关"  align="center" />
   <t-row>
     <t-col span="8" offset="3">
-      <t-button disabled="true" size="small" class="linkBtn">图片解析(开发中)</t-button>
+      <t-button bind:tap="navigateTotjxhs" size="small" class="linkBtn">图文笔记</t-button>
     </t-col>
     <t-col span="8" offset="4">
-      <t-button disabled="true" size="small" class="linkBtn">视频解析(开发中)</t-button>
+      <t-button bind:tap="navigateTospxhs" size="small" class="linkBtn">视频笔记</t-button>
     </t-col>
   </t-row>
 </view>
@@ -26,7 +26,7 @@
   <t-divider class="main_divider" content="bilibili"  align="center" />
   <t-row>
     <t-col span="8" offset="9">
-      <t-button disabled="true" size="small" class="linkBtn">视频解析(开发中)</t-button>
+      <t-button bind:tap="navigateToBl"  size="small" class="linkBtn">视频解析</t-button>
     </t-col>
   </t-row>
 </view>

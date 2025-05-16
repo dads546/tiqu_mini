@@ -7,36 +7,11 @@ Page({
   },
   onShareTimeline() {},
   onShareTimeline() {},
-  navigateToDytj() {
-    wx.navigateTo({
-      url: '/pages/dytj/index',
-    })
-  },
-  navigateToDysp() {
-    wx.navigateTo({
-      url: '/pages/dysp/index?type=dy',
-    })
-  },
-  navigateToBl() {
-    wx.navigateTo({
-      url: '/pages/dysp/index?type=bl',
-    })
-  },
-  navigateToks() {
-    wx.navigateTo({
-      url: '/pages/dysp/index?type=ks',
-    })
-  },
-  navigateTotjxhs() {
-    wx.navigateTo({
-      url: '/pages/dytj/index?type=xhs',
-    })
-  },
-  navigateTospxhs() {
-    wx.navigateTo({
-      url: '/pages/dysp/index?type=xhs',
+  switchBar: function(e) {
+    console.log(e.currentTarget.dataset.url)
+    //跳转到指定tab，不支持参数传递。 navigateTo不能跳转tabbar里的路径，要使用navigateTo到页面后，在重定向到tab的路径
+    wx.switchTab({
+      url: e.currentTarget.dataset.url,
     })
   }
-
-
 })

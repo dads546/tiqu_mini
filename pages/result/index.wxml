@@ -1,0 +1,30 @@
+<view class="container">
+  <view wx:if="{{showResult && resultType === 2}}" class="result-view">
+    <view class="btn_group">
+<!--      <t-button bind:tap="saveVideo">保存视频</t-button>-->
+        <t-button bind:tap="copyDownloadLink" theme="primary">复制下载链接</t-button>
+        <text class="copy_text">成功复制下载链接后，在浏览器中打开即可下载</text>
+    </view>
+    <view class="video-container">
+      <video src="{{showUrl}}" controls loop></video>
+    </view>
+  </view>
+
+  <view wx:if="{{showResult && resultType === 1}}" class="result-view">
+    <view><t-button size="small" bind:tap="saveToAlbum">批量保存到相册</t-button></view>
+    <view class="image-container">
+      <t-swiper
+              class="image-swiper"
+              image-props="{{imageProps}}"
+              current="{{current}}"
+              autoplay="{{autoplay}}"
+              bind:change="onSwiperChange"
+              bind:tap="previewImage"
+              navigation="{{navigation}}"
+              paginationPosition="{{paginationPosition}}"
+              list="{{imageList}}"
+      >
+      </t-swiper>
+    </view>
+  </view>
+</view>

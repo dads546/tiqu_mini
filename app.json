@@ -1,13 +1,36 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/dytj/index",
-    "pages/dysp/index"
+    "pages/audiopage/index",
+    "pages/linkanalysis/index",
+    "pages/readme/index",
+    "pages/result/index"
   ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "Weixin",
     "navigationBarBackgroundColor": "#ffffff"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#1AAD19",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "/icons/tab/main.png",
+        "selectedIconPath": "/icons/tab/main_active.png"
+      },
+      {
+        "pagePath": "pages/linkanalysis/index",
+        "text": "链接提取",
+        "iconPath": "/icons/tab/video.png",
+        "selectedIconPath": "/icons/tab/video_active.png"
+      }
+    ]
+  }
+
 }

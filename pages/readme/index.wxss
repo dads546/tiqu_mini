@@ -1,0 +1,13 @@
+.readme {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dyimage {
+  height: 500px;
+}
+
+.stepMsg {
+  font-weight: bold;
+}

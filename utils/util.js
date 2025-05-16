@@ -15,10 +15,10 @@ const formatNumber = n => {
 }
 
 const extractUrls = (text) => {
-  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  const urlRegex = /https?:\/\/[^\s]+/;
   let match;
   const urls = [];
-  while ((match = urlRegex.exec(text))!== null) {
+  if ((match = urlRegex.exec(text))!== null) {
     urls.push(match[0]);
   }
   return urls;

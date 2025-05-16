@@ -1,0 +1,8 @@
+<view class="container">
+  <view class="readme">
+    <text class="stepMsg">第一步：打开对应应用内视频，点击屏幕左下方分享按钮</text>
+    <image class="dyimage" src="https://tiqumini.oss-cn-beijing.aliyuncs.com/wxapp/dy_readme1.jpg"/>
+    <text class="stepMsg">第二步：点击复制链接即可</text>
+    <image class="dyimage" src="https://tiqumini.oss-cn-beijing.aliyuncs.com/wxapp/dy_readme2.jpg"/>
+  </view>
+</view>

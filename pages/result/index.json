@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-swiper": "tdesign-miniprogram/swiper/swiper"
+  },
+  "navigationBarTitleText": "图文教程"
+}

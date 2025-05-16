@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "t-message": "tdesign-miniprogram/message/message",
+    "t-overlay": "tdesign-miniprogram/overlay/overlay",
+    "t-link": "tdesign-miniprogram/link/link",
+    "t-textarea": "tdesign-miniprogram/textarea/textarea"
+  },
+  "navigationBarTitleText": "链接提取"
+}

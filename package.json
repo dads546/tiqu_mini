@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "tdesign-miniprogram": "^1.6.1"
+    "tdesign-miniprogram": "^1.9.2"
   },
   "usingComponents": {
     "t-button": "tdesign-miniprogram/button/button",

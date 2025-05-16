@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="warn-header">
+    <image class="warn-image" src="/icons/tab/warn.png"></image>
+    <text class="warn-text">如不清楚如何获取视频/图集链接，请先查看</text>
+    <t-link class="warn-link" size="middle" content="图文教程" theme="warning" suffixIcon="jump" hover bindtap="link2ReadMe"/>
+  </view>
+  <view class="input-area-container">
+    <view class="ipt-top-btn-view">
+      <view class="ipt-top-btn-left">
+        <button class="from-copy-btn" size="small" plain="true" bindtap="onCopyClick">
+          <image class="from-copy-icon" src="/icons/copy.png"></image>
+          <text class="from-copy-text">粘帖</text>
+        </button>
+      </view>
+      <view class="ipt-top-btn-right">
+        <text class="btn-clear" plain="true" 
+        bind:tap="clearInput">清空</text>
+      </view>
+    </view>
+    <t-textarea class="input-area" bind:change="onInputChange" placeholder="网页链接或分享链接" disableDefaultPadding="{{true}}"  value="{{douyintuji}}" />
+  </view>
+  <view class="support">
+    <text class="support-text">支持平台：抖音、小红书</text>
+  </view>
+  <view class="btn-bottom-group">
+    <button loading="{{loading}}" class="item start_btn" size="middle" bind:tap="onButtonClick"><text class="start-text">开始提取</text>
+    </button>
+  </view>
+
+  <t-overlay visible="{{percentage >0}}" duration="{{100}}" />
+  <view wx:if="{{percentage>0}}" class="progress-bar-container">
+    <t-progress theme="circle" percentage="{{percentage}}" />
+    <text class="progress-text">下载中,请稍后</text>
+  </view>
+
+</view>
+<t-message id="t-message"/>

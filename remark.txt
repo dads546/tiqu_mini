@@ -1,0 +1,7 @@
+//,
+//      {
+//        "pagePath": "pages/dytj/index",
+//        "text": "图片去水印",
+//        "iconPath": "/icons/tab/pic.png",
+//        "selectedIconPath": "/icons/tab/pic_active.png"
+//      }

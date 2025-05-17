@@ -49,7 +49,7 @@ Page({
             loop: -1,
             delay: -50,
         },
-        rewardNum:0,
+        rewardNum:1,
         showResult: true,
         resultType: 0,
         percentage: 0,
@@ -116,9 +116,9 @@ Page({
                         title: '已复制到剪切板',
                         icon: 'success'
                     });
-                    that.setData({
-                        rewardNum: this.data.rewardNum-1
-                    })
+                    // that.setData({
+                    //     rewardNum: this.data.rewardNum-1
+                    // })
                 },
                 fail(err) {
                     wx.showToast({
@@ -337,11 +337,12 @@ Page({
         });
     },
     async batchSaveImagesToAlbum(imageUrls) {
+        let that = this;
         try {
             await Promise.all(imageUrls.map(imageUrl => this.saveImageToAlbum(imageUrl)));
-            this.setData({
-                rewardNum: this.data.rewardNum-1
-            })
+            // that.setData({
+            //     rewardNum: this.data.rewardNum-1
+            // })
             wx.showToast({
                 title: '保存成功',
                 icon: 'success'

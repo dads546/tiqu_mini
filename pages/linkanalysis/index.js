@@ -121,6 +121,7 @@ Page({
     this.sleep(1000).then(()=> {
       wx.request({
         url: 'https://api.yiittou.com/short/shortChapterV2',
+        // url: 'https://www.xize.xyz/short/shortChapterV2',
         method: 'POST',
         data: {
           path: path
